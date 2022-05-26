@@ -16,10 +16,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-//MARK: Functions
+//MARK: Funções
     @IBAction func keyPressed(_ sender: UIButton) {
 
         playSound(soundName: sender.currentTitle!)
+        sender.alpha = 0.5
+
+        //Bloco de código que executa depois de um determinado tempo (deadline).
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            //Sobe a opacidade para 100% após 0.2 segundos.
+            sender.alpha = 1.0
+        }
         
     }
     
@@ -29,6 +36,8 @@ class ViewController: UIViewController {
         player.play()
                 
     }
+    
+    
 
 }
 
